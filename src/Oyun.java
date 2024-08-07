@@ -107,11 +107,22 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
 
         if(kontrolEt()){
             timer.stop();
-            String mesaj = "Kazandınız!\n" +
+            Object [] option = {"OYNA","ÇIK"};
+            int seçim = JOptionPane.showOptionDialog(null,"Kazandınız!\n" +
                     "Harcanan ateş : " + harcananAteş +
-                    "\nGeçen süre : " + (geçenSüre/1000.0) + "sn";
-            JOptionPane.showMessageDialog(this,mesaj);
-            System.exit(0);
+                    "\nGeçen süre : " + (geçenSüre/1000.0) + "sn\nTekrar oynamak istermisiniz ?","",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,option,option[0]);
+            if(seçim == JOptionPane.YES_OPTION){
+                ateşler.clear();
+                harcananAteş = 0;
+                geçenSüre = 0;
+                topX = 0;
+                uzaygemisiX = 0;
+                timer.start();
+            }
+            else {
+                System.exit(0);
+            }
+
 
         }
 
