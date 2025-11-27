@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_kullanici_adin/repo_adin">
-    <img src="anaekranpp.jpg" alt="Logo" width="400" height="auto">
+    <img src="readme wp.png" alt="Logo" width="400" height="auto">
   </a>
 
   <h3 align="center">SpaceGame</h3>
