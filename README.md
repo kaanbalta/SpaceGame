@@ -43,7 +43,7 @@
 
 SpaceGame, Java kullanılarak geliştirilmiş klasik bir arcade oyunudur. Oyunun amacı, uzay gemisini kontrol ederek yukarıdan düşen meteorları vurmak ve en yüksek puanı toplamaktır.
 
-Oyun, oyuncu verilerini ve skorlarını saklamak için bir MySQL veritabanı kullanır. Oyuncular kayıt olabilir, giriş yapabilir ve en yüksek skorlarını veritabanına kaydedebilirler.
+Oyun, oyuncu verilerini ve skorlarını saklamak için bir MySQL veritabanı kullanır. Oyuncular kayıt olabilir, giriş yapabilir ve en yüksek skorlarını veritabanına kaydedebilirler.Skorlar oyun içinde bir records tablosunda tutulur.
 
 ### Kullanılan Teknolojiler
 
@@ -69,7 +69,7 @@ Projeyi yerel ortamınızda hatasız çalıştırmak için lütfen aşağıdaki 
 
 1.  **Projeyi Klonlayın**
     ```sh
-    git clone [https://github.com/github_kullanici_adin/repo_adin.git](https://github.com/github_kullanici_adin/repo_adin.git)
+    git clone [https://github.com/kaanbalta/SpaceGame.git](https://github.com/kaanbalta/SpaceGame.git)
     ```
 
 2.  **Veritabanı Kurulumu (Kritik Adım!)**
