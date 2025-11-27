@@ -1,53 +1,53 @@
 <br />
 <div align="center">
-  <a href="https://github.com/github_kullanici_adin/repo_adin">
+  <a href="https://github.com/kaanbalta/SpaceGame">
     <img src="readme wp.png" alt="Logo" width="400" height="auto">
   </a>
 
   <h3 align="center">SpaceGame</h3>
 
   <p align="center">
-    Java ile geliştirilmiş, veritabanı destekli bir uzay oyunu.
+    A database-supported space game developed with Java.
     <br />
-    <a href="https://github.com/github_kullanici_adin/repo_adin"><strong>Dosyaları İncele »</strong></a>
+    <a href="https://github.com/kaanbalta/SpaceGame"><strong>View Code »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_kullanici_adin/repo_adin/issues">Hata Bildir</a>
+    <a href="https://github.com/kaanbalta/SpaceGame/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_kullanici_adin/repo_adin/issues">Özellik İste</a>
+    <a href="https://github.com/kaanbalta/SpaceGame/issues">Request Feature</a>
   </p>
 </div>
 
 <details>
-  <summary>İçindekiler</summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#proje-hakkında">Proje Hakkında</a>
+      <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#kullanılan-teknolojiler">Kullanılan Teknolojiler</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#kurulum">Kurulum</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#gereksinimler">Gereksinimler</a></li>
-        <li><a href="#yükleme-adımları">Yükleme Adımları</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#oynanış">Oynanış</a></li>
-    <li><a href="#iletişim">İletişim</a></li>
+    <li><a href="#gameplay">Gameplay</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
-## Proje Hakkında
+## About The Project
 
-SpaceGame, Java kullanılarak geliştirilmiş klasik bir arcade oyunudur. Oyunun amacı, uzay gemisini kontrol ederek yukarıdan düşen meteorları vurmak ve en yüksek puanı toplamaktır.
+SpaceGame is a classic arcade game developed using Java. The goal of the game is to control the spaceship, shoot down falling meteors, and achieve the highest score.
 
-Oyun, oyuncu verilerini ve skorlarını saklamak için bir MySQL veritabanı kullanır. Oyuncular kayıt olabilir, giriş yapabilir ve en yüksek skorlarını veritabanına kaydedebilirler.Skorlar oyun içinde bir records tablosunda tutulur.
+The game utilizes a MySQL database to store player data and scores. Players can register, log in, and save their high scores to the database. Scores are displayed within the game in a records table.
 
-### Kullanılan Teknolojiler
+### Built With
 
-Bu proje aşağıdaki teknolojiler ve kütüphaneler kullanılarak geliştirilmiştir:
+This project was developed using the following technologies and libraries:
 
 * ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 * ![Swing](https://img.shields.io/badge/Java_Swing-GUI-blue?style=for-the-badge)
@@ -55,45 +55,45 @@ Bu proje aşağıdaki teknolojiler ve kütüphaneler kullanılarak geliştirilmi
 * ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 * ![JDBC](https://img.shields.io/badge/JDBC-Connector-red?style=for-the-badge)
 
-## Kurulum
+## Getting Started
 
-Projeyi yerel ortamınızda hatasız çalıştırmak için lütfen aşağıdaki adımları sırasıyla uygulayın.
+To get a local copy up and running without errors, please follow these simple steps.
 
-### Gereksinimler
+### Prerequisites
 
-* **Java JDK** (Sürüm 8 veya üzeri)
-* **XAMPP** (Apache ve MySQL servisi için)
+* **Java JDK** (Version 8 or higher)
+* **XAMPP** (For Apache and MySQL service)
 * **Git**
 
-### Yükleme Adımları
+### Installation
 
-1.  **Projeyi Klonlayın**
+1.  **Clone the Repo**
     ```sh
     git clone [https://github.com/kaanbalta/SpaceGame.git](https://github.com/kaanbalta/SpaceGame.git)
     ```
 
-2.  **Veritabanı Kurulumu (Kritik Adım!)**
-    * XAMPP Control Panel'i açın, **Apache** ve **MySQL** servislerini başlatın.
-    * Tarayıcınızda `http://localhost/phpmyadmin` adresine gidin.
-    * Sol menüden **Yeni**'ye tıklayın ve veritabanı adı olarak tam olarak şunu yazın: **`demo`**
-    * Oluşturduğunuz `demo` veritabanına tıklayın, üst menüden **İçe Aktar (Import)** sekmesine gelin.
-    * Proje klasöründeki **`Spacegame.sql`** dosyasını seçin ve yükleyin.
-    * *(Not: Veritabanı kullanıcı adı `root`, şifre ise `boş` olarak ayarlanmıştır. Standart XAMPP ayarlarıyla uyumludur.)*
+2.  **Database Setup (Critical Step!)**
+    * Open XAMPP Control Panel and start **Apache** and **MySQL** services.
+    * Go to `http://localhost/phpmyadmin` in your browser.
+    * Click **New** on the left menu and create a database named exactly: **`demo`**
+    * Select the created `demo` database, then go to the **Import** tab.
+    * Choose the **`Spacegame.sql`** file from the project folder and import it.
+    * *(Note: Database username is set to `root` and password is `empty`. This matches standard XAMPP settings.)*
 
-3.  **Kütüphane Ayarı**
-    * Projeyi IntelliJ IDEA (veya kullandığınız IDE) ile açın.
-    * Proje ana dizininde bulunan **`mysql-connector-j-9.0.0.jar`** dosyasını projenin bağımlılıklarına (Dependencies/Libraries) ekleyin.
-    * *IntelliJ IDEA için:* `File > Project Structure > Modules > Dependencies > + > JARs or Directories` yolunu izleyin.
+3.  **Library Configuration**
+    * Open the project in IntelliJ IDEA (or your preferred IDE).
+    * Add the **`mysql-connector-j-9.0.0.jar`** file located in the project root to your project dependencies/libraries.
+    * *For IntelliJ IDEA:* Go to `File > Project Structure > Modules > Dependencies > + > JARs or Directories`.
 
-4.  **Oyunu Başlatın**
-    * `src` klasörü altındaki `Main` sınıfını çalıştırın.
+4.  **Run the Game**
+    * Run the `Main` class located under the `src` folder.
 
-## Oynanış
+## Gameplay
 
-* **Hareket:** Uzay gemisini sağa ve sola yönlendirmek için **A ve D** tuşlarını kullanın.
-* **Ateş Etme:** Meteorları vurmak için **SHIFT** tuşunu kullanın.
-* **Amaç:** Canınız bitmeden mümkün olduğunca çok meteor vurarak en yüksek skoru elde edin.
+* **Movement:** Use **A and D** keys to steer the spaceship left and right.
+* **Shooting:** Use the **SHIFT** key to shoot meteors.
+* **Objective:** Destroy as many meteors as possible before running out of lives to achieve the highest score.
 
-## İletişim
+## Contact
 
-Proje Linki: [https://github.com/kaanbalta/SpaceGame](https://github.com/kaanbalta/SpaceGame)
+Project Link: [https://github.com/kaanbalta/SpaceGame](https://github.com/kaanbalta/SpaceGame)
