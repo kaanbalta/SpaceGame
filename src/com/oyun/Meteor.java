@@ -1,4 +1,4 @@
-package com.Oyun;
+package com.oyun;
 
 public class Meteor {
     private int x;

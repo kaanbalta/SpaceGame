@@ -1,9 +1,9 @@
-package com.AnaEkran;
+package com.anaekran;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import com.Database.Database;
+import com.database.Database;
 import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -11,8 +11,8 @@ import java.util.Map;
 public class Records extends JFrame {
     private Database database = new Database();
     private JPanel panel;
-    private JTable table1;
-    private JScrollPane scrollpane;
+    private JTable table;
+    private JScrollPane scrollPane;
 
     public Records() {
         add(panel);
@@ -26,15 +26,15 @@ public class Records extends JFrame {
             }
         };
 
-        JTableHeader tableHeader = table1.getTableHeader();
+        JTableHeader tableHeader = table.getTableHeader();
         tableHeader.setFont(new Font("Serif", Font.BOLD, 14));
         tableHeader.setForeground(Color.red);
-        table1.setRowHeight(20);
+        table.setRowHeight(20);
 
-        table1.setModel(model);
-        scrollpane.setViewportView(table1);
+        table.setModel(model);
+        scrollPane.setViewportView(table);
 
-        LinkedHashMap<String,Integer> kullanıcılar = database.Kullanıcıpuanlarınıgetir();
+        LinkedHashMap<String,Integer> kullanıcılar = database.kullaniciPuanlariniGetir();
 
         for(Map.Entry<String,Integer> entry : kullanıcılar.entrySet()){
             model.addRow(new Object[]{entry.getKey(), entry.getValue()});

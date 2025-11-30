@@ -1,4 +1,4 @@
-import com.Login.LoginEkrani;
+import com.login.LoginEkrani;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -8,15 +8,15 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 
-        LoginEkrani.loginwp = null;
+        LoginEkrani.loginImg = null;
 
         try {
-            LoginEkrani.loginwp = ImageIO.read(new File("img/loginarkaplan.jpg"));
+            LoginEkrani.loginImg = ImageIO.read(new File("img/loginarkaplan.jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        if(LoginEkrani.loginwp != null){
+        if(LoginEkrani.loginImg != null){
 
             LoginEkrani loginEkranı = new LoginEkrani();
             SwingUtilities.invokeLater(new Runnable() {

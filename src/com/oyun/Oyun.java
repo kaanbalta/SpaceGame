@@ -1,8 +1,8 @@
-package com.Oyun;
+package com.oyun;
 
-import com.AnaEkran.AnaEkran;
-import com.Database.Database;
-import com.Login.LoginEkrani;
+import com.anaekran.AnaEkran;
+import com.database.Database;
+import com.login.LoginEkrani;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,54 +21,54 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
 
     private Database database = new Database();
 
-    public static String kullanıcıadı = "";
-    private int geçenSüre = 0;
-    private int harcananAteş = 0;
-    private int yokolanmeteor = 0;
-    private int vurulanmeteor = 0;
+    public static String kullaniciAdi = "";
+    private int gecenSure = 0;
+    private int harcananAtes = 0;
+    private int yokOlanMeteor = 0;
+    private int vurulanMeteor = 0;
     private double puan = 0;
     private double level = 0;
     public BufferedImage image;
-    public BufferedImage Arkaplan;
+    public BufferedImage arkaPlan;
     public BufferedImage canavar;
-    public BufferedImage füze;
-    private ArrayList<Ates> ateşler = new ArrayList<Ates>();
+    public BufferedImage fuze;
+    private ArrayList<Ates> atesler = new ArrayList<Ates>();
     private ArrayList<Meteor> meteorlar = new ArrayList<Meteor>();
-    private int ateşdirY = 4; //Ateşler hareket ederken y kordinatına eklenecek değer
-    private int uzaygemisiX = 0;
-    private int diruzaygemisiX = 7; //Klavyeye basıldığında uzay gemisinin kayması için eklenecek değer
+    private int atesDirY = 4; //Ateşler hareket ederken y kordinatına eklenecek değer
+    private int uzayGemisiX = 0;
+    private int uzaygemisiDirX = 7; //Klavyeye basıldığında uzay gemisinin kayması için eklenecek değer
     private JFrame frame;
 
 
     public boolean kontrolEt(){
 
-        if(yokolanmeteor >= 10){
-            if(vurulanmeteor==0 || harcananAteş==0){
+        if(yokOlanMeteor >= 10){
+            if(vurulanMeteor==0 || harcananAtes==0){
                 puan=0;
             }
             else {
-                puan = (vurulanmeteor * 12) + ((double) geçenSüre / 1000) - (harcananAteş*2);
+                puan = (vurulanMeteor * 12) + ((double) gecenSure / 1000) - (harcananAtes*2);
                 level = puan;
 
                 if(puan<0){
                     puan = 0;
                 }
             }
-            database.puangüncelle(kullanıcıadı,(int)puan);
+            database.puanGuncelle(kullaniciAdi,(int)puan);
             return true;
         }
 
-        for(int i = 0;i < ateşler.size();i++){
+        for(int i = 0;i < atesler.size();i++){
 
             for(int j=0; j < meteorlar.size();j++){
 
-                Rectangle ateşRect = new Rectangle(ateşler.get(i).getX(), ateşler.get(i).getY(), füze.getWidth() / 40, füze.getHeight() / 50);
+                Rectangle ateşRect = new Rectangle(atesler.get(i).getX(), atesler.get(i).getY(), fuze.getWidth() / 40, fuze.getHeight() / 50);
                 Rectangle meteorRect = new Rectangle(meteorlar.get(j).getX(), meteorlar.get(j).getY(), canavar.getWidth() / 21, canavar.getHeight() / 21);
 
                 if(ateşRect.intersects(meteorRect)){
                     meteorlar.remove(j);
-                    ateşler.remove(i);
-                    vurulanmeteor++;
+                    atesler.remove(i);
+                    vurulanMeteor++;
                     break;
 
                 }
@@ -81,21 +81,21 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
         for(int i = 0;i < meteorlar.size();i++){
 
             Rectangle meteorRect = new Rectangle(meteorlar.get(i).getX(), meteorlar.get(i).getY(), canavar.getWidth() / 21, canavar.getHeight() / 21);
-            Rectangle gemiRect = new Rectangle(uzaygemisiX,640,image.getWidth() / 25,image.getHeight() / 25);
+            Rectangle gemiRect = new Rectangle(uzayGemisiX,640,image.getWidth() / 25,image.getHeight() / 25);
 
 
             if(meteorRect.intersects(gemiRect)){
-                if(vurulanmeteor==0 || harcananAteş==0){
+                if(vurulanMeteor==0 || harcananAtes==0){
                     puan=0;
                 }
                 else {
-                    puan = (vurulanmeteor * 12) + ((double) geçenSüre / 1000) - (harcananAteş*2);
+                    puan = (vurulanMeteor * 12) + ((double) gecenSure / 1000) - (harcananAtes*2);
                     level = puan;
                     if(puan<0){
                         puan = 0;
                     }
                 }
-                database.puangüncelle(kullanıcıadı,(int)puan);
+                database.puanGuncelle(kullaniciAdi,(int)puan);
                 return true;
 
             }
@@ -115,19 +115,19 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void paint(Graphics g) {
-        geçenSüre+=5;
+        gecenSure+=5;
         g.setColor(Color.RED);
-        g.drawImage(Arkaplan,0,0,1000,750,this);
-        g.drawImage(image,uzaygemisiX,640,image.getWidth() / 25,image.getHeight() / 25,this);
+        g.drawImage(arkaPlan,0,0,1000,750,this);
+        g.drawImage(image,uzayGemisiX,640,image.getWidth() / 25,image.getHeight() / 25,this);
 
-        for(int i = 0;i < ateşler.size();i++) {
-            if (ateşler.get(i).getY() < 0) {
-                ateşler.remove(ateşler.get(i));
+        for(int i = 0;i < atesler.size();i++) {
+            if (atesler.get(i).getY() < 0) {
+                atesler.remove(atesler.get(i));
             }
         }
 
-        for (int j = 0;j < ateşler.size();j++){
-            g.drawImage(füze,ateşler.get(j).getX(),ateşler.get(j).getY(),füze.getWidth() / 40, füze.getHeight() / 50, this);
+        for (int j = 0;j < atesler.size();j++){
+            g.drawImage(fuze,atesler.get(j).getX(),atesler.get(j).getY(),fuze.getWidth() / 40, fuze.getHeight() / 50, this);
         }
 
         for(int i = 0;i < meteorlar.size();i++) {
@@ -142,19 +142,19 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
             Object [] option = {"OYNA","ÇIK"};
             int seçim = JOptionPane.showOptionDialog(null,"Puanınız : " + (int)puan +  "\nTekrar oynamak istermisiniz ?","",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,option,option[0]);
             if(seçim == JOptionPane.YES_OPTION){
-                uzaygemisiX = 0;
-                ateşler.clear();
+                uzayGemisiX = 0;
+                atesler.clear();
                 meteorlar.clear();
-                yokolanmeteor = 0;
-                vurulanmeteor = 0;
-                harcananAteş = 0;
-                geçenSüre = 0;
+                yokOlanMeteor = 0;
+                vurulanMeteor = 0;
+                harcananAtes = 0;
+                gecenSure = 0;
                 puan = 0;
                 timer.start();
                 timer1.start();
             }
             else if(seçim == JOptionPane.NO_OPTION){
-                AnaEkran anaEkran = new AnaEkran(LoginEkrani.Kullanıcıadı);
+                AnaEkran anaEkran = new AnaEkran(LoginEkrani.kullaniciAdi);
                 frame.dispose();
                 anaEkran.setVisible(true);
 
@@ -173,8 +173,8 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for (int i = 0;i < ateşler.size();i++){
-            ateşler.get(i).setY(ateşler.get(i).getY() - ateşdirY);
+        for (int i = 0;i < atesler.size();i++){
+            atesler.get(i).setY(atesler.get(i).getY() - atesDirY);
         }
 
         for(int i = 0;i < meteorlar.size();i++){
@@ -182,7 +182,7 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
 
             if(meteorlar.get(i).getY() > 750){
                 meteorlar.remove(i);
-                yokolanmeteor++;
+                yokOlanMeteor++;
                 repaint();
             }
         }
@@ -200,8 +200,8 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
         int c = e.getKeyCode();
 
         if(c == KeyEvent.VK_SHIFT){
-            ateşler.add(new Ates(uzaygemisiX + 12,570));
-            harcananAteş++;
+            atesler.add(new Ates(uzayGemisiX + 12,570));
+            harcananAtes++;
 
         }
 
@@ -231,7 +231,7 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
                     timer1.start();
                 }
                 else {
-                    AnaEkran anaEkran = new AnaEkran(LoginEkrani.Kullanıcıadı);
+                    AnaEkran anaEkran = new AnaEkran(LoginEkrani.kullaniciAdi);
                     frame.dispose();
                     anaEkran.setVisible(true);
                 }
@@ -266,8 +266,8 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
     Timer soltimer = new Timer(10, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (uzaygemisiX > 0) {
-                uzaygemisiX -= diruzaygemisiX;
+            if (uzayGemisiX > 0) {
+                uzayGemisiX -= uzaygemisiDirX;
             }
         }
     });
@@ -275,8 +275,8 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
     Timer  sağtimer = new Timer(10, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (uzaygemisiX < 955) {
-                uzaygemisiX += diruzaygemisiX;
+            if (uzayGemisiX < 955) {
+                uzayGemisiX += uzaygemisiDirX;
             }
         }
     });

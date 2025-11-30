@@ -1,4 +1,4 @@
-package com.Oyun;
+package com.oyun;
 
 public class Ates {
     private int x;

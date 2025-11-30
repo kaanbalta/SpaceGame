@@ -1,13 +1,13 @@
-package com.Database;
+package com.database;
 
 import java.sql.*;
 import java.util.LinkedHashMap;
 
 public class Database {
 
-    public static final String kullanici_adi = "root";
+    public static final String kullaniciAdi = "root";
     public static final String parola = "";
-    public static final String Databaseismi = "demo";
+    public static final String databaseIsmi = "demo";
     public static final String host = "localhost";
     public static final int port = 3306;
     private Connection connection = null;
@@ -15,9 +15,9 @@ public class Database {
     private PreparedStatement preparedStatement = null;
 
 
-    public boolean kullanıcıekle(String isim,String parola){
+    public boolean kullaniciEkle(String isim,String parola){
 
-        LinkedHashMap<String,String> kullanıcılar = Kullanıcıgetir();
+        LinkedHashMap<String,String> kullanicilar = kullaniciGetir();
 
         String sorgu = "Insert into Spacegame (İsim,Şifre,MAXpuan) values (?,?,?)";
 
@@ -27,7 +27,7 @@ public class Database {
             preparedStatement.setString(2, parola);
             preparedStatement.setInt(3,0);
 
-            if(kullanıcılar.containsKey(isim)){
+            if(kullanicilar.containsKey(isim)){
                 return false;
             }
             else {
@@ -40,7 +40,7 @@ public class Database {
         }
     }
 
-    public void puangüncelle(String isim,int puan){
+    public void puanGuncelle(String isim,int puan){
         String sorgu = "Update Spacegame set MAXpuan=? where İsim=? AND MAXpuan < ?";
 
         try {
@@ -54,7 +54,7 @@ public class Database {
         }
     }
 
-    public LinkedHashMap<String,Integer> Kullanıcıpuanlarınıgetir(){
+    public LinkedHashMap<String,Integer> kullaniciPuanlariniGetir(){
 
         LinkedHashMap<String,Integer> data = new LinkedHashMap<String,Integer>();
         try {
@@ -73,7 +73,7 @@ public class Database {
         }
     }
 
-    public LinkedHashMap<String,String> Kullanıcıgetir(){
+    public LinkedHashMap<String,String> kullaniciGetir(){
 
         LinkedHashMap<String,String> data = new LinkedHashMap<String,String>();
         try {
@@ -93,7 +93,7 @@ public class Database {
     }
 
     public Database(){
-        String url = "jdbc:mysql://" + host + ":" + port + "/" + Databaseismi + "?useUnicode=true&characterEncoding=UTF-8";
+        String url = "jdbc:mysql://" + host + ":" + port + "/" + databaseIsmi + "?useUnicode=true&characterEncoding=UTF-8";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -102,7 +102,7 @@ public class Database {
         }
 
         try {
-            connection = DriverManager.getConnection(url,kullanici_adi,parola);
+            connection = DriverManager.getConnection(url,kullaniciAdi,parola);
             System.out.println("Bağlantı başarılı");
         } catch (SQLException e) {
             throw new RuntimeException(e);

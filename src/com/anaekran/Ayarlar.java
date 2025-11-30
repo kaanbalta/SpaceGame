@@ -1,4 +1,4 @@
-package com.AnaEkran;
+package com.anaekran;
 
 import javax.swing.*;
 

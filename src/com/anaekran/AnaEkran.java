@@ -1,8 +1,8 @@
-package com.AnaEkran;
+package com.anaekran;
 
-import com.Login.LoginEkrani;
-import com.Oyun.Oyun;
-import com.Oyun.OyunEkrani;
+import com.login.LoginEkrani;
+import com.oyun.Oyun;
+import com.oyun.OyunEkrani;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,17 +19,17 @@ public class AnaEkran extends JFrame {
     private JButton ayarlarButton;
     private JButton recordsButton;
     private JButton magazaButton;
-    private JButton çıkışButton;
+    private JButton cikisButton;
     private JButton oturumuKapatButton;
     public JLabel label;
-    public String kullanıcıadı;
-    public BufferedImage Arkaplan;
+    public String kullaniciAdi;
+    public BufferedImage arkaPlan;
 
-    public AnaEkran(String kullanıcıadı) {
-        this.kullanıcıadı = kullanıcıadı;
+    public AnaEkran(String kullaniciAdi) {
+        this.kullaniciAdi = kullaniciAdi;
 
         try {
-            Arkaplan = ImageIO.read(new File("img/anaekranpp.jpg"));
+            arkaPlan = ImageIO.read(new File("img/anaekranpp.jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -42,9 +42,9 @@ public class AnaEkran extends JFrame {
         ayarlarButton = new JButton("Ayarlar");
         recordsButton = new JButton("Records");
         magazaButton = new JButton("Mağaza");
-        çıkışButton = new JButton("Çıkış");
+        cikisButton = new JButton("Çıkış");
         oturumuKapatButton = new JButton("Oturumu Kapat");
-        label = new JLabel("Kullanıcı :  " + kullanıcıadı);
+        label = new JLabel("Kullanıcı :  " + kullaniciAdi);
 
         label.setForeground(Color.white);
         label.setFont(new Font("Arial", Font.BOLD, 20));
@@ -55,14 +55,14 @@ public class AnaEkran extends JFrame {
         recordsButton.setBounds(40, 230, 300, 33);
         magazaButton.setBounds(40, 280, 300, 33);
         oturumuKapatButton.setBounds(40,330, 300, 33);
-        çıkışButton.setBounds(40, 380, 300, 33);
+        cikisButton.setBounds(40, 380, 300, 33);
 
         panel.add(label);
         panel.add(oynaButton);
         panel.add(ayarlarButton);
         panel.add(recordsButton);
         panel.add(magazaButton);
-        panel.add(çıkışButton);
+        panel.add(cikisButton);
         panel.add(oturumuKapatButton);
 
         add(panel);
@@ -75,13 +75,13 @@ public class AnaEkran extends JFrame {
         oynaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OyunEkrani oyunEkranı = new OyunEkrani();
-                Oyun.kullanıcıadı = kullanıcıadı;
+                OyunEkrani oyunEkrani = new OyunEkrani();
+                Oyun.kullaniciAdi = kullaniciAdi;
                 setVisible(false);
-                oyunEkranı.setVisible(true);
+                oyunEkrani.setVisible(true);
             }
         });
-        çıkışButton.addActionListener(new ActionListener() {
+        cikisButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -116,7 +116,7 @@ public class AnaEkran extends JFrame {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(Arkaplan, 0, 0,800,500, this);
+            g.drawImage(arkaPlan, 0, 0,800,500, this);
         }
     }
 
