@@ -29,7 +29,7 @@ public class AnaEkran extends JFrame {
         this.kullanıcıadı = kullanıcıadı;
 
         try {
-            Arkaplan = ImageIO.read(new File("anaekranpp.jpg"));
+            Arkaplan = ImageIO.read(new File("img/anaekranpp.jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

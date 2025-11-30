@@ -11,7 +11,7 @@ public class Main {
         LoginEkranı.loginwp = null;
 
         try {
-            LoginEkranı.loginwp = ImageIO.read(new File("loginarkaplan.jpg"));
+            LoginEkranı.loginwp = ImageIO.read(new File("img/loginarkaplan.jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

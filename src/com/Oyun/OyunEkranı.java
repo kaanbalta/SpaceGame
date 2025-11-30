@@ -18,10 +18,10 @@ public class OyunEkranı extends JFrame {
 
         Oyun oyun = new Oyun(this);
         try {
-            oyun.image = ImageIO.read(new FileImageInputStream(new File("uzaygemisi.png")));
-            oyun.Arkaplan = ImageIO.read(new FileImageInputStream(new File("arkaplan1.png")));
-            oyun.canavar = ImageIO.read(new FileImageInputStream(new File("canavar.png")));
-            oyun.füze = ImageIO.read(new FileImageInputStream(new File("füze.png")));
+            oyun.image = ImageIO.read(new FileImageInputStream(new File("img/uzaygemisi.png")));
+            oyun.Arkaplan = ImageIO.read(new FileImageInputStream(new File("img/arkaplan1.png")));
+            oyun.canavar = ImageIO.read(new FileImageInputStream(new File("img/canavar.png")));
+            oyun.füze = ImageIO.read(new FileImageInputStream(new File("img/füze.png")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
