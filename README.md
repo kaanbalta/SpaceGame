@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/kaanbalta/SpaceGame">
-    <img src="readme img/readme wp.png" alt="Logo" width="400" height="auto">
+    <img src="readme img/anaekranpp.jpg" alt="Logo" width="400" height="auto">
   </a>
 
   <h3 align="center">SpaceGame</h3>
