@@ -14,58 +14,6 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
-class Ateş{
-    private int x;
-    private int y;
-
-    public Ateş(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-}
-
-class Meteor{
-    private int x;
-    private int y;
-
-    public Meteor(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-}
-
 
 public class Oyun extends JPanel implements KeyListener, ActionListener {
 
@@ -84,7 +32,7 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
     public BufferedImage Arkaplan;
     public BufferedImage canavar;
     public BufferedImage füze;
-    private ArrayList<Ateş> ateşler = new ArrayList<Ateş>();
+    private ArrayList<Ates> ateşler = new ArrayList<Ates>();
     private ArrayList<Meteor> meteorlar = new ArrayList<Meteor>();
     private int ateşdirY = 4; //Ateşler hareket ederken y kordinatına eklenecek değer
     private int uzaygemisiX = 0;
@@ -252,7 +200,7 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
         int c = e.getKeyCode();
 
         if(c == KeyEvent.VK_SHIFT){
-            ateşler.add(new Ateş(uzaygemisiX + 12,570));
+            ateşler.add(new Ates(uzaygemisiX + 12,570));
             harcananAteş++;
 
         }
