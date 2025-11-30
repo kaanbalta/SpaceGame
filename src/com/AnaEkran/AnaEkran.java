@@ -1,8 +1,8 @@
 package com.AnaEkran;
 
-import com.Login.LoginEkranı;
+import com.Login.LoginEkrani;
 import com.Oyun.Oyun;
-import com.Oyun.OyunEkranı;
+import com.Oyun.OyunEkrani;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -75,7 +75,7 @@ public class AnaEkran extends JFrame {
         oynaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OyunEkranı oyunEkranı = new OyunEkranı();
+                OyunEkrani oyunEkranı = new OyunEkrani();
                 Oyun.kullanıcıadı = kullanıcıadı;
                 setVisible(false);
                 oyunEkranı.setVisible(true);
@@ -104,7 +104,7 @@ public class AnaEkran extends JFrame {
         oturumuKapatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LoginEkranı loginEkranı = new LoginEkranı();
+                LoginEkrani loginEkranı = new LoginEkrani();
                 setVisible(false);
                 loginEkranı.setVisible(true);
             }

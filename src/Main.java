@@ -1,4 +1,4 @@
-import com.Login.LoginEkranı;
+import com.Login.LoginEkrani;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -8,17 +8,17 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 
-        LoginEkranı.loginwp = null;
+        LoginEkrani.loginwp = null;
 
         try {
-            LoginEkranı.loginwp = ImageIO.read(new File("img/loginarkaplan.jpg"));
+            LoginEkrani.loginwp = ImageIO.read(new File("img/loginarkaplan.jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        if(LoginEkranı.loginwp != null){
+        if(LoginEkrani.loginwp != null){
 
-            LoginEkranı loginEkranı = new LoginEkranı();
+            LoginEkrani loginEkranı = new LoginEkrani();
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
                     loginEkranı.setVisible(true);

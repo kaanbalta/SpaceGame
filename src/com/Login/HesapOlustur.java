@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 import com.Database.Database;
 
-public class HesapOluştur extends JFrame{
+public class HesapOlustur extends JFrame{
     private Database database = new Database();
     public BufferedImage hesapolusturwp;
     private JPanel panel;
@@ -22,9 +22,9 @@ public class HesapOluştur extends JFrame{
     private JLabel parotek;
     public JLabel Mesaj;
 
-    public HesapOluştur(){
+    public HesapOlustur(){
 
-        panel = new LoginEkranı.CustomPanel();
+        panel = new LoginEkrani.CustomPanel();
         panel.setLayout(null);
 
         kullanıcıadı = new JTextField();

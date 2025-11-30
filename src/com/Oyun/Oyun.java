@@ -2,7 +2,7 @@ package com.Oyun;
 
 import com.AnaEkran.AnaEkran;
 import com.Database.Database;
-import com.Login.LoginEkranı;
+import com.Login.LoginEkrani;
 
 import javax.swing.*;
 import java.awt.*;
@@ -154,7 +154,7 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
                 timer1.start();
             }
             else if(seçim == JOptionPane.NO_OPTION){
-                AnaEkran anaEkran = new AnaEkran(LoginEkranı.Kullanıcıadı);
+                AnaEkran anaEkran = new AnaEkran(LoginEkrani.Kullanıcıadı);
                 frame.dispose();
                 anaEkran.setVisible(true);
 
@@ -231,7 +231,7 @@ public class Oyun extends JPanel implements KeyListener, ActionListener {
                     timer1.start();
                 }
                 else {
-                    AnaEkran anaEkran = new AnaEkran(LoginEkranı.Kullanıcıadı);
+                    AnaEkran anaEkran = new AnaEkran(LoginEkrani.Kullanıcıadı);
                     frame.dispose();
                     anaEkran.setVisible(true);
                 }

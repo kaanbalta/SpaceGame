@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import com.AnaEkran.AnaEkran;
 import com.Database.Database;
 
-public class LoginEkranı extends JFrame {
+public class LoginEkrani extends JFrame {
 
     private Database database = new Database();
     public static BufferedImage loginwp;
@@ -23,14 +23,14 @@ public class LoginEkranı extends JFrame {
     private JLabel mesaj;
     private JLabel Kadılabel;
     private JLabel şifrelabel;
-    private HesapOluştur hesapOluştur = new HesapOluştur();
+    private HesapOlustur hesapOluştur = new HesapOlustur();
     public static String Kullanıcıadı;
 
     public String getTextField1() {
         return textField1.getText();
     }
 
-    public LoginEkranı(){
+    public LoginEkrani(){
 
         panel = new CustomPanel();
         panel.setLayout(null);

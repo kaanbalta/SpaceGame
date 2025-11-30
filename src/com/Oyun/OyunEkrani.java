@@ -6,9 +6,9 @@ import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
-public class OyunEkranı extends JFrame {
+public class OyunEkrani extends JFrame {
 
-    public OyunEkranı(){
+    public OyunEkrani(){
 
         setResizable(false);
         setFocusable(false);
